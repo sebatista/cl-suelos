@@ -61,7 +61,8 @@ Customización Suelos
         'base_multi_store',  # agrega capacidad de multitienda analogo a multicompañia
 #        'account_multi_store','base_multi_store', # capacidad de limitar los diarios segun los stores (repo journal-constraint)
         'voucher_payment_check_fix',  # evita que aparezca cheques propios en medios de pago de cliente
-        'account_invoice_tax_auto_update', # autocalcula los impuestos al salvar asi no hay que hacer el update
+        'account_invoice_tax_auto_update',  # autocalcula los impuestos al salvar asi no hay que hacer el update
+        'account_accountant',
     ],
     'data': [
         'security/security_groups.xml',
