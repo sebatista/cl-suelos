@@ -22,7 +22,7 @@ from openerp import models, fields, api
 from openerp import SUPERUSER_ID
 
 
-class product_product(models.Model):
+class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     prod_in_box = fields.Float(
@@ -36,6 +36,11 @@ class product_product(models.Model):
             'Unidad', required=True,
             default='mt2'
     )
+
+
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
+
     price_1 = fields.Float(
             u'Publico',
             compute='_compute_prices'
@@ -68,19 +73,6 @@ class product_product(models.Model):
         self.price_3 = self.pool.get('product.pricelist').price_get(
             self.env.cr, SUPERUSER_ID, [_3_pricelist_id], self.id, 1.0,
             context=None)[_3_pricelist_id]
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
