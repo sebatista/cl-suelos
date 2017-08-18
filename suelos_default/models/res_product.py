@@ -42,7 +42,7 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     price_1 = fields.Float(
-            u'Publico',
+            u'Distrib',
             compute='_compute_prices'
     )
     price_2 = fields.Float(
@@ -50,16 +50,16 @@ class ProductProduct(models.Model):
             compute='_compute_prices'
     )
     price_3 = fields.Float(
-            u'Efectivo',
+            u'Lista',
             compute='_compute_prices'
     )
 
     @api.one
     @api.depends('standard_price')
     def _compute_prices(self):
-        _1_pricelist_id = 1 # Publico
+        _1_pricelist_id = 1 # Distribucion
         _2_pricelist_id = 4 # Obra
-        _3_pricelist_id = 3 # Efectivo
+        _3_pricelist_id = 3 # Lista
 
         # calcular el precios basado en la lista de precios
         self.price_1 = self.pool.get('product.pricelist').price_get(

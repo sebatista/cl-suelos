@@ -38,7 +38,7 @@ Customización Suelos
         'disable_openerp_online',  # elimina referencias a odoo online
         'account_cancel',  # Muestra el check en los diarios que permite cancelar asientos
         'hide_product_variants',  # oculta las variantes
-        'im_chat',  # mensajeria instantanea entre usuarios de odoo
+        #'im_chat',  # mensajeria instantanea entre usuarios de odoo
         #        'express_checkout',         # Facturación express
         'invoice_order_by_id',  # ordena facturas ultima arriba
         #        'sale_order_recalculate_prices',  # agrega boton para recalcular precios
