@@ -6,66 +6,59 @@
    (4, ref('account.group_account_invoice')), - datos de facturacion
 -->
         <data noupdate="0">
-
-            <!-- los usuarios de este grupo no pueden modificar precios, este grupo se usa
-            en sale_view.xls para poner en readonly el precio
-
-            <record id="group_suelos_sales_readonly_price" model="res.groups">
-                <field name="name">Suelos - NO permite modificar precios</field>
-                <field name="category_id" ref="base.module_category_hidden"/>
-                <field name="comment">El usuario que tenga este grupo no puede modificar
-                    los precios, ni en la orden de compra ni en la factura</field>
-            </record>
--->
-
-            <!-- grupo usuarios de ventas
-              (4, ref('stock.group_stock_user')), para que pueda ver stock en todos lados
-
-            -->
-            <record id="group_suelos_sales_users" model="res.groups">
-                <field name="name">Suelos - Usuario comercial</field>
-                <field name="category_id" ref="base.module_category_hidden"/>
-                <field name="comment">Grupo para todos los usuarios comerciales</field>
-                <field name="implied_ids"
-                       eval="[
-                                (4, ref('account.group_account_invoice')),
-                                (4, ref('base.group_user')),
-                                (4, ref('base.group_sale_salesman')),
-
-                                (4, ref('stock.group_stock_user')),
-                                ]"/>
+            <record model="ir.module.category" id="module_suelos">
+                <field name="name">Distribuidora Suelos</field>
+                <field name="sequence">0</field>
+                <field name="visible" eval="0" />
             </record>
 
-            <!-- grupo usuarios de almacen -->
+            <!-- GRUPO ALMACEN -->
             <record id="group_suelos_stock_users" model="res.groups">
-                <field name="name">Suelos - Usuario de almacén</field>
-                <field name="category_id" ref="base.module_category_hidden"/>
+                <field name="name">Almacén</field>
+                <field name="category_id" ref="module_suelos"/>
                 <field name="comment">Grupo para todos los usuarios que manejan stock</field>
                 <field name="implied_ids"
                        eval="[
                                 (4, ref('base.group_user')),
                                 (4, ref('stock.group_stock_user')),
                                  ]"/>
-
-                <!--
-                <field name="implied_ids"
-                       eval="[
-                                (4, ref('base.group_user')),
-                                (4, ref('stock.group_locations')),
-                                (4, ref('stock.group_stock_user')),
-                                (4, ref('stock.group_stock_manager')),
-                                 ]"/>
--->
             </record>
 
-            <!-- grupo usuarios administradores -->
+            <!-- GRUPO VENTAS -->
+            <record id="group_suelos_sales_users" model="res.groups">
+                <field name="name">Comercial</field>
+                <field name="category_id" ref="module_suelos"/>
+                <field name="comment">Grupo para todos los usuarios comerciales</field>
+                <field name="implied_ids"
+                       eval="[
+                                (4, ref('group_suelos_stock_users')),
+                                (4, ref('account.group_account_invoice')),
+                                (4, ref('base.group_sale_salesman')),
+                                ]"/>
+            </record>
+
+            <!-- GRUPO ENCARGADO -->
+            <record id="group_suelos_manager_users" model="res.groups">
+                <field name="name">Encargado</field>
+                <field name="category_id" ref="module_suelos"/>
+                <field name="comment">Grupo para todos los usuarios encargados, tiene los derechos
+                    del grupo comercial mas la posibilidad de ver todas las listas de precio</field>
+                <field name="implied_ids"
+                       eval="[
+                                (4, ref('group_suelos_sales_users')),
+                              ]"/>
+            </record>
+
+            <!-- GRUPO ADMINISTRADOR -->
+
             <record id="group_suelos_admin_users" model="res.groups">
-                <field name="name">Suelos - Administración</field>
-                <field name="category_id" ref="base.module_category_hidden"/>
+                <field name="name">Administración</field>
+                <field name="category_id" ref="module_suelos"/>
                 <field name="comment">Grupo para todos los usuarios que son administradores
                     del sistema, tienen todas las funciones</field>
                 <field name="implied_ids"
                        eval="[
+                                (4, ref('group_suelos_manager_users')),
                                 (4, ref('account.group_account_user')),
                                 (4, ref('account.group_account_invoice')),
                                 (4, ref('stock.group_locations')),
@@ -77,37 +70,30 @@
 
             <!-- Reglas de registro para manejar las listas de precios -->
 
-            <!-- no muestra las listas de precio con restricted = True solo al grupo sales users -->
-            <record id="pricelist_restrict_suelos_rule" model="ir.rule">
-                <field name="name">Regla para mostrar solo las listas de precio no restringidas</field>
+            <!-- agregamos permiso para ver las listas restringidas a usuarios admin y encargado -->
+            <record id="pricelist_permit_admin_rule" model="ir.rule">
+                <field name="name">Permite ver las listas de precio restringidas</field>
                 <field name="model_id" ref="product.model_product_pricelist"/>
-                <field name="groups" eval="[(4, ref('group_suelos_sales_users'))]"/>
+                <field name="groups" eval="[(4, ref('group_suelos_admin_users')),
+                                            (4, ref('group_suelos_manager_users'))]"/>
+                <field name="domain_force">[('restricted','=',True)]</field>
+            </record>
+
+            <!-- permiso para ver las listas restringidas a usuarios comercial y stock-->
+            <record id="pricelist_permit_sales_rule" model="ir.rule">
+                <field name="name">Restriccion de lista de precios</field>
+                <field name="model_id" ref="product.model_product_pricelist"/>
+                <field name="groups" eval="[(4, ref('group_suelos_sales_users')),
+                                            (4, ref('group_suelos_stock_users'))]"/>
                 <field name="domain_force">[('restricted','=',False)]</field>
             </record>
 
-            <!-- no pude ocultar el menu de pricelist en sales
-            <menuitem id="product.menu_product_pricelist_main" groups="group_suelos_admin_users"/>
-            <menuitem id="product.menu_product_pricelist_action" groups="group_suelos_admin_users"/>
-            <menuitem id="product.menu_product_pricelist_action2" groups="group_suelos_admin_users"/>
-            <menuitem id="product.menu_product_price_type" groups="group_suelos_admin_users"/>
--->
-
-            <!-- oculta globalmente las listas de precio con restricted = True
-            <record id="pricelist_restrict_suelos_rule" model="ir.rule">
-                <field name="name">Regla para ocultar las listas de precio restringidas</field>
-                <field name="model_id" ref="product.model_product_pricelist"/>
-                <field name="global" eval="True"/>
-                <field name="domain_force">[('restricted','=',False)]</field>
-            </record>
--->
-            <!-- hace aparecer el menu de categorias
-
+            <!-- hace aparecer el menu de categorias -->
             <menuitem id="prod_config_main1"
                       parent="base.menu_product"
                       action="product.product_category_action_form"
                       name="Categorias de productos"
                       sequence="770"/>
-             -->
 
 
             <!-- le ponemos estas regalas solo al usuario de stock para sacarselas a los demas usuarios -->
@@ -126,6 +112,19 @@
 
             <record id="sale_multi_store.sale_order_store_rule" model="ir.rule">
                 <field name="groups" eval="[(4, ref('suelos_default.group_suelos_stock_users'))]"/>
+            </record>
+
+            <!-- permitir que todos puedan ver el journal_id para elegir el punto de venta -->
+
+            <record id="account_invoice_form_suelos" model="ir.ui.view">
+                <field name="name">account.invoice.form.suelos</field>
+                <field name="model">account.invoice</field>
+                <field name="inherit_id" ref="account.invoice_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='journal_id']" position="attributes">
+                        <attribute name="groups"></attribute>
+                    </xpath>
+                </field>
             </record>
 
         </data>
