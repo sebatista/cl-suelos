@@ -27,18 +27,19 @@
     'description': """
 
 Customización Suelos
-==================================
+====================
 """,
     'author': 'jeo Software',
     'depends': [
         'l10n_ar_base',  # modulo base para localización argentina
+        'vertical_ceramicas',  # modulo vertical de mayoristas de ceramicas
         'base_vat_unique',  # evita que duplique cuit
         'base_vat_dni',     # validaciones para DNI / CUIT
         # 'base_vat_unique_parent',  # evita que duplique cuit en multicompañia
         'disable_openerp_online',  # elimina referencias a odoo online
         'account_cancel',  # Muestra el check en los diarios que permite cancelar asientos
         'hide_product_variants',  # oculta las variantes
-        #'im_chat',  # mensajeria instantanea entre usuarios de odoo
+        # 'im_chat',  # mensajeria instantanea entre usuarios de odoo
         #        'express_checkout',         # Facturación express
         'invoice_order_by_id',  # ordena facturas ultima arriba
         #        'sale_order_recalculate_prices',  # agrega boton para recalcular precios
@@ -50,7 +51,7 @@ Customización Suelos
         'l10n_ar_aeroo_purchase',  # dependencia requerida
         'l10n_ar_aeroo_einvoice',  # dependencia requerida
         'l10n_ar_aeroo_stock',  # dependencia requerida
-        'l10n_ar_aeroo_voucher', # dependencia requerida
+        'l10n_ar_aeroo_voucher',  # dependencia requerida
         #        'po_custom_reports',        # dependencia requerida
         #        'custom_vat_ledger',        # dependencia requerida
         #        'odoo_argentina_fix',       # patch a la localización
@@ -58,23 +59,13 @@ Customización Suelos
         #        'ticket_citi_fix',          # corrige citi para pv impresor fiscal
         'product_unique_default_code',  # impide que se duplique el default_code
         'hide_messaging',  # oculta el menu de mensajeria
-        'base_multi_store',  # agrega capacidad de multitienda analogo a multicompañia
-#        'account_multi_store','base_multi_store', # capacidad de limitar los diarios segun los stores (repo journal-constraint)
+#        'base_multi_store',  # agrega capacidad de multitienda analogo a multicompañia
+        'account_multi_store', 'base_multi_store', 'stock_multi_store',  # capacidad de limitar los diarios segun los stores (repo journal-constraint)
         'voucher_payment_check_fix',  # evita que aparezca cheques propios en medios de pago de cliente
-        'account_invoice_tax_auto_update',  # autocalcula los impuestos al salvar asi no hay que hacer el update
-        'account_accountant',
+        'account_invoice_tax_auto_update', # autocalcula los impuestos al salvar asi no hay que hacer el update
     ],
     'data': [
-        'security/security_groups.xml',
-        'security/ir.model.access.csv',
         'views/custom_reports.xml',
-        'views/res_product.xml',
-        'views/account_tax_view.xml',
-        'views/sale_view.xml',
-        'views/pricelist_view.xml',
-        'stock_report.xml',
-        'views/report_stockpicking.xml',
-        'views/res_company.xml'
     ],
     'test': [
 
