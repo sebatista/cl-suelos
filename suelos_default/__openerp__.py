@@ -33,10 +33,9 @@ Customización Suelos
     'depends': [
         'l10n_ar_base',  # modulo base para localización argentina
         'vertical_ceramicas',  # modulo vertical de mayoristas de ceramicas
-        'base_vat_unique',  # evita que duplique cuit
-        'base_vat_dni',     # validaciones para DNI / CUIT
-        # 'base_vat_unique_parent',  # evita que duplique cuit en multicompañia
         'disable_openerp_online',  # elimina referencias a odoo online
+        'partner_fiscal_constraints',
+        # 'base_vat_unique_parent',  # evita que duplique cuit en multicompañia
         'account_cancel',  # Muestra el check en los diarios que permite cancelar asientos
         'hide_product_variants',  # oculta las variantes
         # 'im_chat',  # mensajeria instantanea entre usuarios de odoo
