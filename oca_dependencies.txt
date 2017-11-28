@@ -6,3 +6,4 @@ odoomrp-wip https://github.com/jobiols/odoomrp-wip.git 8.0
 jeo https://github.com/jobiols/jeo.git 8.0
 adhoc_multi_store https://github.com/jobiols/adhoc-multi-store.git 8.0
 odoo-support https://github.com/ingadhoc/odoo-support.git 8.0
+odoo-addons https://github.com/jobiols/odoo-addons.git 8.0
