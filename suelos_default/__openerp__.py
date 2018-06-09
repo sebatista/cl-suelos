@@ -20,8 +20,8 @@
 # -----------------------------------------------------------------------------------
 
 {
-    'name': 'Suelos',
-    'version': '8.0.1.0.0',
+    'name': 'suelos',
+    'version': '8.0.2.0.0',
     'category': 'Tools',
     'summary': 'Customización Suelos',
     'description': """
