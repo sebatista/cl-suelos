@@ -66,12 +66,25 @@ Customización Suelos
         'views/custom_reports.xml',
     ],
     'test': [
-
     ],
     'installable': True,
     'application': True,
     'auto_install': False,
     'images': [],
+
+    'port': '8069',
+    'repos': [
+        {'usr': 'jobiols', 'repo': 'reves', 'branch': '8.0'},
+        {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '8.0'},
+        {'usr': 'jobiols', 'repo': 'jeo', 'branch': '8.0'},
+        {'usr': 'jobiols', 'repo': 'adhoc-multi-store', 'branch': '8.0'},
+    ],
+    'docker': [
+        {'name': 'aeroo', 'usr': 'jobiols', 'img': 'aeroo-docs'},
+        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '8.0'},
+        {'name': 'postgres', 'usr': 'postgres', 'ver': '9.5'},
+        {'name': 'nginx', 'usr': 'nginx', 'ver': 'latest'}
+    ]
 }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+
