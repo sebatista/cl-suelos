@@ -74,7 +74,7 @@ Customización Suelos
 
     'port': '8069',
     'repos': [
-        {'usr': 'jobiols', 'repo': 'reves', 'branch': '8.0'},
+        {'usr': 'jobiols', 'repo': 'cl-suelos', 'branch': '8.0'},
         {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '8.0'},
         {'usr': 'jobiols', 'repo': 'jeo', 'branch': '8.0'},
         {'usr': 'jobiols', 'repo': 'adhoc-multi-store', 'branch': '8.0'},
