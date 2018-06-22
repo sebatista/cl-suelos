@@ -18,22 +18,21 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # -----------------------------------------------------------------------------------
-
 {
     'name': 'suelos',
-    'version': '8.0.3.0.0',
+    'version': '8.0.4.0.0',
     'category': 'Tools',
     'summary': 'Customización Suelos',
     'author': 'jeo Software',
     'depends': [
         'l10n_ar_base',  # modulo base para localización argentina
         'disable_openerp_online',  # elimina referencias a odoo online
-        'account_cancel',  # Muestra el check en los diarios que permite cancelar asientos
+        'account_cancel',  # permite cancelar asientos
         'hide_product_variants',  # oculta las variantes
         'invoice_order_by_id',  # ordena facturas ultima arriba
         #        'sale_order_recalculate_prices',  # agrega boton para recalcular precios
         #        'partner_search',            # permite buscar partners por varios criterios
-        'account_journal_sequence',  # agrega un campo de secuencia en el diario para ordenarlos
+        'account_journal_sequence',  # ordena diarios
         # 'account_statement_move_import'  # agrega boton de importar aputnes en extractos bancarios
         'l10n_ar_aeroo_sale',  # dependencia requerida
         'l10n_ar_aeroo_purchase',  # dependencia requerida
@@ -44,15 +43,15 @@
         #        'custom_vat_ledger',        # dependencia requerida
         #        'odoo_argentina_fix',       # patch a la localización
         'account_invoice_tax_wizard',  # agrega insercion manual de impuestos para factura de compras
-        #        'ticket_citi_fix',          # corrige citi para pv impresor fiscal
         'product_unique_default_code',  # impide que se duplique el default_code
         'hide_messaging',  # oculta el menu de mensajeria
         'voucher_payment_check_fix',  # evita que aparezca cheques propios en medios de pago de cliente
         'account_invoice_tax_auto_update',  # autocalcula los impuestos al salvar asi no hay que hacer el update
-        'server_mode', # disable some functions when running databases on odoo servers with parameter server_mode = "some value"
+        'server_mode',
     ],
     'data': [
         'views/custom_reports.xml',
+        'views/res_product.xml'
     ],
     'test': [
     ],
@@ -64,7 +63,7 @@
     'port': '8069',
     'repos': [
         {'usr': 'jobiols', 'repo': 'cl-suelos', 'branch': '8.0'},
-        {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '8.0'},
+        # {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '8.0'},
         {'usr': 'jobiols', 'repo': 'jeo', 'branch': '8.0'},
     ],
     'docker': [
