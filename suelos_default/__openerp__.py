@@ -48,6 +48,7 @@
         'voucher_payment_check_fix',  # evita que aparezca cheques propios en medios de pago de cliente
         'account_invoice_tax_auto_update',  # autocalcula los impuestos al salvar asi no hay que hacer el update
         'server_mode',
+        'account_clean_cancelled_invoice_number'
     ],
     'data': [
         'views/custom_reports.xml',
