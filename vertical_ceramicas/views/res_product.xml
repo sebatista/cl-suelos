@@ -44,7 +44,7 @@
             </field>
         </record>
 -->
-        <!--  product inherited tree view  agrega los tres precios en la lista de productos
+        <!--  product inherited tree view  agrega los tres precios en la lista de productos -->
 
         <record id="view_product_tree_reves" model="ir.ui.view">
             <field name="name">res.product.tree.reves</field>
@@ -62,11 +62,9 @@
                 </field>
                 <field name="lst_price" position="after">
                     <field name="price_1"/>
-                    <field name="price_2"/>
-                    <field name="price_3"/>
                 </field>
             </field>
         </record>
--->
+
     </data>
 </openerp>

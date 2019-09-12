@@ -41,6 +41,7 @@
         'stock_report.xml',
         'views/res_product.xml',
         'views/stock_view.xml',
+        'views/res_config_view.xml'
     ],
     'test': [
 
