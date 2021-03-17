@@ -21,7 +21,7 @@
 
 {
     'name': 'Vertical Ceramicas',
-    'version': '8.0.1.2',
+    'version': '8.0.1.3.0',
     'category': 'Tools',
     'summary': 'Customización mayorista de ceramicas',
     'author': 'jeo Software',
@@ -51,4 +51,3 @@
     'auto_install': False,
     'images': [],
 }
-

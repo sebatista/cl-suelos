@@ -20,7 +20,7 @@
 # -----------------------------------------------------------------------------------
 {
     'name': 'suelos',
-    'version': '8.0.4.0.0',
+    'version': '8.0.5.0.0',
     'category': 'Tools',
     'summary': 'Customización Suelos',
     'author': 'jeo Software',
@@ -64,15 +64,13 @@
     'port': '8069',
     'repos': [
         {'usr': 'jobiols', 'repo': 'cl-suelos', 'branch': '8.0'},
-        # {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '8.0'},
+        {'usr': 'jobiols', 'repo': 'odoo-jeo-ce', 'branch': '8.0'},
         {'usr': 'jobiols', 'repo': 'jeo', 'branch': '8.0'},
     ],
     'docker': [
-        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '8.0'},
+        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '8.1'},
         {'name': 'aeroo', 'usr': 'jobiols', 'img': 'aeroo-docs'},
         {'name': 'postgres', 'usr': 'postgres', 'ver': '9.5'},
         {'name': 'nginx', 'usr': 'nginx', 'ver': 'latest'}
     ]
 }
-
-
