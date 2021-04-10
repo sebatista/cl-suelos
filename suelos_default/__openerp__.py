@@ -68,7 +68,7 @@
         {'usr': 'jobiols', 'repo': 'jeo', 'branch': '8.0'},
     ],
     'docker': [
-        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '8.1'},
+        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '8.2'},
         {'name': 'aeroo', 'usr': 'jobiols', 'img': 'aeroo-docs'},
         {'name': 'postgres', 'usr': 'postgres', 'ver': '9.5'},
         {'name': 'nginx', 'usr': 'nginx', 'ver': 'latest'}
