@@ -66,6 +66,8 @@
         {'usr': 'jobiols', 'repo': 'cl-suelos', 'branch': '8.0'},
         {'usr': 'jobiols', 'repo': 'odoo-jeo-ce', 'branch': '8.0'},
         {'usr': 'jobiols', 'repo': 'jeo', 'branch': '8.0'},
+        {'usr': 'ingadhoc', 'repo': 'multi-store', 'branch': '8.0'},
+        {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '8.0'},
     ],
     'docker': [
         {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '8.2'},
