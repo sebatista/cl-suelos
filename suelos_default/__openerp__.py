@@ -52,7 +52,8 @@
     ],
     'data': [
         'views/custom_reports.xml',
-        'views/res_product.xml'
+        'views/res_product.xml',
+        'views/invoice_view.xml'
     ],
     'test': [
     ],
