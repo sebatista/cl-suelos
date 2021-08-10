@@ -27,7 +27,8 @@
         'standard_depends_ce',
         'sale_management',
         'stock',
-        'purchase'
+        'purchase',
+        'product_in_box'
     ],
     'data': [
     ],
