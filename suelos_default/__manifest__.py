@@ -25,10 +25,32 @@
     'author': 'jeo Software',
     'depends': [
         'standard_depends_ce',
+		
+		'sale',
         'sale_management',
-        'stock',
         'purchase',
-        'product_in_box'
+		
+        'stock',
+        'product_in_box',
+		
+		#Contabilidad
+        'account',
+		'account_ux',
+
+		
+		#Localización
+        'l10n_ar',
+        'l10n_ar_ux',
+        'l10n_ar_afipws',
+        'l10n_ar_afipws_fe',
+        'l10n_ar_bank',
+        'l10n_ar_sale',
+        'l10n_ar_account_withholding',
+        'l10n_latam_invoice_document',
+        'l10n_ar_reports',
+        'l10n_ar_aeroo_base',
+		'padron_afip',
+
     ],
     'data': [
     ],
@@ -51,7 +73,16 @@
         'git@github.com:jobiols/cl-suelos.git',
         'https://github.com/jobiols/odoo-jeo-ce.git',
 
+		# Odoomates
+		#==========================================================================================
+        'https://github.com/odoomates/odooapps odoomates-odooapps',
+
+        # Gabriela Rivero
+		#==========================================================================================
+        'https://github.com/regaby/odoo-custom regaby-odoo-custom',
+		
         # todos juntos
+		#==========================================================================================
         # 'https://github.com/OCA/account-closing oca-account-closing',
         'https://github.com/OCA/account-financial-reporting oca-account-financial-reporting', # noqa
         'https://github.com/OCA/account-financial-tools oca-account-financial-tools',
