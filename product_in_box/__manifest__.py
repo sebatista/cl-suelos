@@ -24,8 +24,12 @@
     'summary': 'Contabilida cantidad de producto en caja',
     'author': 'jeo Software',
     'depends': [
+        'product',
+        'sale'
     ],
     'data': [
+        'views/product_template_view.xml',
+        'views/sale_order_view.xml',
     ],
     'test': [
     ],
