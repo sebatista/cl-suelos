@@ -36,6 +36,7 @@
 		#Contabilidad
         'account',
 		'account_ux',
+		'account_financial_report',
 
 		
 		#Localización
